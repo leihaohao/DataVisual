@@ -5,7 +5,7 @@
 <template>
 	<div :draggable="elementStatus" @dragstart="dragstartEvent" class="hjj-cols2">
     <a @click.prevent.stop="deleteEle" class="delete" v-show="config && !elementStatus">
-      <Icon type="close-circled"></Icon>删除
+      <Icon type="close-circled"></Icon>删除1
     </a>
     <h1 v-show="elementStatus">两列栏容器：</h1>
     <Row type="flex" justify="center" align="middle" class="code-row-bg hjj-cols2-content">
