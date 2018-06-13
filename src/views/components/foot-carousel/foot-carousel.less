@@ -1,0 +1,32 @@
+@import "../../../assets/styles/common.less";
+.hjj-carouselbtns{
+    width:940px;
+    h3{border-bottom: 2px solid #0f8de6;letter-spacing: 2px; text-align:left;font-size:25px; background: url('../../../assets/images/right_bar.png') no-repeat center right;
+        span{.area-gradient;}
+    }
+    >ul{ position: relative;overflow: hidden;height: 50px;}
+    .btn{
+        transition: left 1s;
+        float:left;width:147px;height:50px;background: url('../../../assets/images/main_bottom_button.png') no-repeat center;
+        a{font-size:16px;line-height:50px;color:#00d0ff;display: inline-block;width:100%;height:100%;text-align:center;}
+        &:hover{background: url('../../../assets/images/main_bottom_button_hover.png') no-repeat center;
+           a{color:#fff;}
+        }
+        &.active{background: url('../../../assets/images/main_bottom_button_active.png') no-repeat center;
+            a{color:#fff;}
+        }
+    }
+    .pre{
+        position: absolute; left:0; top:50%;margin-top:-20px; width:30px;height:40px;background: url('../../../assets/images/arrow-nav.png') no-repeat 0 0;
+        a{display: inline-block;width:100%;height:100%;}
+        &:hover{background: url('../../../assets/images/arrow-nav.png') no-repeat -34px 0;}
+    }
+    .last{
+        position: absolute; right:0; top:50%;margin-top:-20px; width:30px;height:40px;background: url('../../../assets/images/arrow-nav.png') no-repeat -116px 0;
+        a{display: inline-block;width:100%;height:100%;}
+        &:hover{background: url('../../../assets/images/arrow-nav.png') no-repeat -82px 0;}
+    }
+    .carousel-list-wrap{    width: 735px;
+        margin: 0 auto;
+        overflow: hidden;}
+}

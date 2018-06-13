@@ -1,0 +1,72 @@
+@import "../../../assets/styles/common.less";
+.hjj-card {
+    width: 430px;margin-bottom:15px;
+    .delete{
+        color:#fff;
+        font-size: 12px;
+        vertical-align: middle;
+        line-height: 19px;
+        cursor:pointer;
+        z-index:10;
+        &:hover{
+                color:#01f5fd;
+                i{color:#fff;}
+            }
+        i{
+            font-size: 15px;
+            vertical-align: text-top;
+            margin-right: 5px;
+        }
+    }
+    h3{
+        font-size:24px;
+        background: url('../../../assets/images/right_bar.png') no-repeat center right;
+        border-bottom: 2px solid #0f8ce6;
+        >span{.area-gradient;letter-spacing: 2px;}
+        .hjj-card-openclose{
+            display:inline-block;
+            vertical-align:text-bottom;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            & label:hover{
+                color:#01f5fd;
+            }
+        }
+    }
+    h5{font-size:20px;font-weight:normal;border-bottom: 1px solid #02f1fc;line-height: 40px;margin-bottom:15px;}
+    .card-content{
+        min-height:100px;
+        -moz-box-shadow:0px 0px 20px #0099FF inset;
+        -webkit-box-shadow:0px 0px 20px #0099FF inset;
+        box-shadow:0px 0px 20px #0099FF inset;
+        transition:all 0.5s;
+        padding:15px;box-sizing: border-box;
+        color:#01f5fd;background-color: rgba(33, 55, 183, 0.102);
+        background:rgba(0,130,210,.15) url('../../../assets/images/center_top.png') no-repeat top center;
+        .card-tips{font-size:20px;font-weight: bold;}
+        b{
+            font-weight:bold;font-size:16px;line-height: 32px;
+
+        }
+        .subtitle{line-height:32px;color:#fff;}
+        .card-line{background: #02f1fc;height:1px;margin-bottom:15px;}
+        &:hover{
+             animation:tranBoxShadow 0.4s ease-in infinite alternate;
+            -moz-animation:tranBoxShadow 0.4s ease-in infinite alternate; /* Firefox */
+            -webkit-animation:tranBoxShadow 0.4s ease-in infinite alternate; /* Safari and Chrome */
+            -o-animation:tranBoxShadow 0.4s ease-in infinite alternate; /* Opera */
+        }
+    }
+    .card-section{
+        color: #01f5fd;
+        .card-row{
+            line-height: 20px;font-size: 14px;
+            &>.f-fl:first-child{margin-right:70px;}
+        }
+    }
+}
+.hjj-content{position:relative;}

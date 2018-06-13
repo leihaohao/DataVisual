@@ -1,0 +1,55 @@
+.text-gradient{
+    background: -moz-linear-gradient(top, #a7efff 0%, #0f9de6 60%, #1e5799 100%); 
+    background: -webkit-linear-gradient(top, #a7efff 0%,#0f9de6 60%,#1e5799 100%); 
+    background: linear-gradient(to bottom, #a7efff 0%,#0f9de6 60%,#1e5799 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7efff', endColorstr='#1e5799',GradientType=0 ); 
+    -webkit-background-clip: text;
+}
+.area-gradient{
+    background: -moz-linear-gradient(top, #a7efff 0%, #0f9de6 60%, #1e5799 100%); 
+    background: -webkit-linear-gradient(top, #a7efff 0%,#0f9de6 60%,#1e5799 100%); 
+    background: linear-gradient(to bottom, #a7efff 0%,#0f9de6 60%,#1e5799 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7efff', endColorstr='#1e5799',GradientType=0 );
+    -webkit-background-clip: text;
+    color:transparent;
+}
+.box-shadow{
+    box-shadow: inset 0 0 20px #09f;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    background-color: rgba(0,130,210,.15);
+}
+.tranboxShadow{
+    animation: tranBoxShadow .4s ease-in infinite alternate;
+    -moz-animation: tranBoxShadow .4s ease-in infinite alternate;
+    -webkit-animation: tranBoxShadow .4s ease-in infinite alternate;
+    -o-animation: tranBoxShadow .4s ease-in infinite alternate;
+}
+@keyframes tranBoxShadow
+{
+    0%   {
+        -moz-box-shadow:0px 0px 20px #0099FF inset;
+        -webkit-box-shadow:0px 0px 20px #0099FF inset;
+        box-shadow:0px 0px 20px #0099FF inset;
+    }
+    25%  {
+        -moz-box-shadow:0px 0px 25px #0099FF inset;
+        -webkit-box-shadow:0px 0px 25px #0099FF inset;
+        box-shadow:0px 0px 30px #0099FF inset;
+    }
+    50%  {
+        -moz-box-shadow:0px 0px 30px #0099FF inset;
+        -webkit-box-shadow:0px 0px 30px #0099FF inset;
+        box-shadow:0px 0px 40px #0099FF inset;
+    }
+    75%  {
+        -moz-box-shadow:0px 0px 40px #0099FF inset;
+        -webkit-box-shadow:0px 0px 40px #0099FF inset;
+        box-shadow:0px 0px 50px #0099FF inset;
+    }
+    100% {
+        -moz-box-shadow:0px 0px 50px #0099FF inset;
+        -webkit-box-shadow:0px 0px 50px #0099FF inset;
+        box-shadow:0px 0px 60px #0099FF inset;
+    }
+}

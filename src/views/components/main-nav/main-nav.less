@@ -1,0 +1,67 @@
+.hjj-menu{
+  margin-top:18px;
+  position:relative;
+  .hjj-menu-nav{width:960px;margin:0 auto;
+    li{
+       background: url(../../../assets/images/main_center_button.png) no-repeat center;
+       &:hover{background: url(../../../assets/images/select-list-bg.png) no-repeat 0 0;
+          a{color:#fff;}
+       }
+       &.active{
+           background: url(../../../assets/images/select-list-bg.png) no-repeat -161px 0;
+           a{color:#fff;}
+       }
+       width:145px;height: 51px; text-align: center;float:left;margin-right:15px;                                       
+       a{font-size:20px;line-height: 51px;color:#00d0ff;width:100%;height:100%;display: inline-block;}
+    }
+  }
+  .setbtn{
+    position:absolute;right:0;bottom:0;cursor:pointer;
+    &:hover{
+      ul{display:block;}
+    }
+    ul{ width: 158px;
+        left: -126px;
+        top: 22px;
+        position: absolute;
+        display:none;
+        z-index:1000;
+        background: #0a2a6aa6;
+
+    }
+    li{
+      height: 32px;
+      line-height: 32px;
+      font-size: 14px;
+      text-align: left;
+      color: #fff;
+      width: 100%;
+      background: none;
+      &:hover{
+        background:#1893e8;
+      }
+      i{display:inline-block;}
+      a{ color:#fff;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 0 10px;
+       }
+    }
+    .i-setmain{
+      width:32px;height:32px;display:inline-block;background:url(../../../assets/images/markpoint/main_setting_normal.png) no-repeat center;
+      &:hover{background:url(../../../assets/images/markpoint/main_setting_hover.png) no-repeat center;}
+      &.acitve{background:url(../../../assets/images/markpoint/main_setting_active.png) no-repeat center;}
+    }
+  }
+  .ivu-btn{padding:0;}
+  .page-save{
+    position:absolute;
+    right:50px;
+    top:8px;
+    span{display:inline-block;height:100%;width:100%;}
+    a{color:#fff;display: inline-block;
+        width: 100%;
+        height: 100%; padding: 6px 15px;}
+  }
+}

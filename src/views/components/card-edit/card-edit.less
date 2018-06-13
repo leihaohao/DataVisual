@@ -1,0 +1,31 @@
+@import "../../../assets/styles/common.less";
+.hjj-cols2-content{
+    position:relative;
+    -moz-box-shadow:0px 0px 20px #0099FF inset;
+    min-height:100px;
+    -webkit-box-shadow:0px 0px 20px #0099FF inset;
+    box-shadow:0px 0px 20px #0099FF inset;
+    transition:all 0.5s;
+    box-sizing: border-box;
+    color:#1893e8;
+    background-color: rgba(33, 55, 183, 0.102);
+    background:rgba(0,130,210,.15) url('../../../assets/images/center_top.png') no-repeat top center;
+    .ivu-col-span-12{
+        border-right: 1px solid #01f5fd;
+        min-height: 100px;
+        &:last-child{
+            border:0;
+        }
+        &>div{
+            min-height:100px;
+        }
+    }
+}
+.hjj-cols2{
+    position:relative;
+    .delete{
+        position: absolute;
+        right: 2px;
+        top: 2px;
+    }
+}

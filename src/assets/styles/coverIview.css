@@ -1,0 +1,24 @@
+.right-checkboxs .select-all .ivu-checkbox-wrapper{font-size:12px;width:50px;float:right;}
+.right-checkboxs .ivu-checkbox-wrapper:last-child{margin-bottom:0;}
+.right-checkboxs .ivu-checkbox{position:absolute;right:0}
+.right-checkboxs .ivu-checkbox-inner{background:transparent;border:1px solid #1067bb;}
+.right-checkboxs .select-all .ivu-checkbox-wrapper{font-size:12px;width:50px;float:right;}
+.right-checkboxs .ivu-checkbox-wrapper{margin-top:20px;margin-right:0;font-size:18px;position:relative;width:100%;color:#01f5fd;}
+.right-checkboxs .ivu-checkbox-large .ivu-checkbox-checked .ivu-checkbox-inner:after{width: 8px;
+    height: 18px;
+    border-color: #03b7d7;
+    top: -7px;
+    left: 8px;}
+
+.select-inline-selected .select-all .ivu-checkbox-wrapper{font-size: 18px;width:50px;/* float:right; */width: auto;text-align: left;}
+.select-inline-selected .ivu-checkbox-wrapper:last-child{margin-bottom:0;}
+.select-inline-selected .ivu-checkbox-inner{background:transparent;border:1px solid #1067bb;}
+.select-inline-selected .ivu-checkbox-wrapper{margin-top:20px;margin-right:0;font-size: 16px;position:relative;width:100%;color:#01f5fd;}
+.select-inline-selected .ivu-checkbox{/* position:absolute; */float: right;/* right:0; */margin-left: 10px;margin-top: 5px;}
+.select-inline-selected .ivu-checkbox-large .ivu-checkbox-checked .ivu-checkbox-inner:after{width: 8px;
+    height: 18px;
+    border-color: #03b7d7;
+    top: -7px;
+    left: 8px;}
+.select-inline-selected .ivu-checkbox-group{padding-left:20px;}
+.select-inline-selected .ivu-checkbox-group .ivu-checkbox-wrapper{width: 115px;margin-right: 70px;}
