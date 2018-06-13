@@ -4,7 +4,7 @@
 <template>
     <div class="hjj-menu">
         <div v-if="config" style="position:absolute;bottom:0;">
-            <Alert  show-icon style="display:inline-block;">页面设计模式（页面已禁止跳转，卡片不能超出红框）</Alert>
+            <Alert  show-icon style="display:inline-block;">页面设计模式（页面已禁止跳转，组件不能超出虚线框）</Alert>
         </div>
         <ul class="f-cb hjj-menu-nav">
             <li v-for="(item,key) in pageComponents" :class="{active:item.path === $route.params.id}">

@@ -1,26 +1,27 @@
 <style lang="less">
-    @import './card-list.less';
+    @import './card-task.less';
 </style>
 
 <template>
-	<div v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
-      <div class="card-section">
-        <b v-if="data.top && data.top.length>0">
-          <span v-for="(item,index) in data.top" :key="`top${index}`">
-            {{item.name}}：<span>{{item.value}}</span>{{item.unit}}</span>
-        </b>
-        <div :class="{'card-row':true,'large':status.big}">
-          <span class="card-td" :style="{display:display,width:display=='block'?'100%':'200px'}" v-for="(item,index) in data.bottom" :key="`item${index}`">{{item.name}}：<span>{{item.value}}</span>{{item.unit}}</span>
-        </div>
-        <card-edit v-if="!status.slot" @show="show" @hide="hide" @del="del"></card-edit>
+    <div class="f-cb card-taskunit" v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
+      <div class="list box-list-chart small">
+        <table>
+          <tr>
+            <th v-for="item in data.title">{{item}}</th>
+          </tr>
+          <tr v-for="item in data.content">
+            <td v-for="item2 in item">{{item2}}</td>
+          </tr>
+        </table>
       </div>
-  </div>
+      <card-edit v-if="!status.slot" @show="show" @hide="hide" @del="del"></card-edit>
+    </div>
 </template>
 
 <script>
 import cardEdit from '@/views/components/card-edit/card-edit.vue';
 export default {
-    name: 'cardList',
+    name: 'cardTaskunit',
     components: {
       cardEdit
     },

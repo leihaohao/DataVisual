@@ -5,11 +5,11 @@
 	<div>
 
 		<main-nav></main-nav>
-	    <section @dragover.prevent="dragovers($event)" @drop.prevent="drops($event)" class="hjj-content f-cb" :style="{height:config?'932px':'auto',border:config?'2px solid red':'auto',marginBottom:'20px'}">
+	    <section @dragover.prevent="dragovers($event)" @drop.prevent="drops($event)" class="hjj-content f-cb" :style="{height:config?'932px':'auto',border:config?'2px dashed #fff':'auto',marginBottom:'20px'}">
 			<china-map></china-map>
-			<component :data="item.data" :is="item.type" :status="item" :index="key" :parents="currentPageComponent" :components="item.components" v-for="(item,key) in currentPageComponent" :key="`${item.type+item.name+key}`">
-				<component :display="item2.display" :is="item2.type" :status="item2" :index="key2" :parents="item.components" :cols="''+item2.cols" :data="item2.data" v-for="(item2,key2) in item.components" :key="`${item.type+item.origin+item.ex+key}`">
-					<component :is="item3.type" :data="item3.data" :type="item3.type" :slot="item3.slot" :width="item3.width" :height="item3.height" v-for="(item3,key3) in item2.components" :key="`${item.type+item.origin+item.ex+key}`">
+			<component :data="item.data" :is="item.type" :status="item" :index="key" :parents="currentPageComponent" :components="item.components" v-for="(item,key) in currentPageComponent" :key="`${item.type+item.id+key}`">
+				<component :display="item2.display" :is="item2.type" :status="item2" :index="key2" :parents="item.components" :cols="''+item2.cols" :data="item2.data" v-for="(item2,key2) in item.components" :key="`${item.type+item.id+key}`">
+					<component :is="item3.type" :status="item3" :data="item3.data" :slot="item3.slot" :width="item3.width" :height="item3.height" v-for="(item3,key3) in item2.components" :key="`${item.type+item.id+item.ex+key}`">
 					</component>
 				</component>
 			</component>
@@ -28,10 +28,13 @@ import cardList from '@/views/components/card-list/card-list.vue';
 import footCarousel from '@/views/components/foot-carousel/foot-carousel.vue';	
 import searchCheckbox from '@/views/components/search-checkbox/search-checkbox.vue';	
 import searchList from '@/views/components/search-list/search-list.vue';	
+import cardTasktime from '@/views/components/card-task/card-tasktime.vue';	
+import cardTaskunit from '@/views/components/card-task/card-taskunit.vue';	
+import cardTaskprogress from '@/views/components/card-task/card-taskprogress.vue';	
 export default {
     name: 'custom',
     components: {
-        mainNav,chinaMap,card,charts,cardCols,cardList,footCarousel,searchCheckbox,searchList
+        mainNav,chinaMap,card,charts,cardCols,cardList,footCarousel,searchCheckbox,searchList,cardTasktime,cardTaskunit,cardTaskprogress
     },
     data(){
 	    return {
@@ -69,7 +72,8 @@ export default {
 					isShow:1,
 					x:0,
 					y:0,
-					components:[]
+					components:[],
+					id:(Math.random()*2e+2).toFixed()
 				})
 			}else if(type === 'foot'){
 				this.currentPageComponent.push({
@@ -90,6 +94,7 @@ export default {
 					isShow:1,
 					x:0,
 					y:0,
+					id:(Math.random()*2e+2).toFixed()
 				})
 			}else if(type === 'search-list'){
 				this.currentPageComponent.push({
@@ -98,6 +103,7 @@ export default {
 					isShow:1,
 					x:0,
 					y:0,
+					id:(Math.random()*2e+2).toFixed()
 				})
 			}else if(type === ''){
 
@@ -105,7 +111,6 @@ export default {
 				alert('只能放在容器内！')
 			}
 			ev.dataTransfer.setData('type','');
-			console.log(this.pageComponents);
 		},
     	...mapActions(['getPageCache','getPageComponents'])
 	},
@@ -113,7 +118,6 @@ export default {
 		this.getPageCache().then(()=>{
 			this.getPageComponents();
 		});
-		console.log(this.currentPageComponent);
 	},
 	mounted(){
 

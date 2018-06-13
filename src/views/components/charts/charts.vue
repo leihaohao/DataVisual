@@ -149,6 +149,94 @@ export default {
           colorPool:['#1e9ef5','#bf4947','#df9630','#4fcdf6','#80b658','#a06edd'],
           colorNum:Number,
           echColor:[],
+          defaultProp:{
+            'pie':{//饼状图数据格式
+            "title":"延期合同分类占比",
+            "legend":[
+                     "预研项目",
+                     "科研项目",
+                     "订购项目",
+                     "维修项目",
+                     "专项项目"
+            ],
+            "series":{
+              "type":"pie",
+              "sData":[
+                     {"value":"580","name":"预研项目"},
+                     {"value":"700","name":"科研项目"},
+                     {"value":"800","name":"订购项目"},
+                     {"value":"500","name":"维修项目"},
+                     {"value":"290","name":"专项项目"},
+              ]
+            }    
+           },
+          //circle数据格式：
+          'circle':{//环形图数据格式
+            "title":"90%\n使用率",
+            "series":{
+              "type":"circle",
+              "sData":[
+                     {"value":"100","name":"编配率"},
+                     {"value":"900","name":"非编配率"},
+              ]
+            }
+          },
+
+          //groupBar数据格式：
+          'vbar':{//分组柱状图数据格式
+             "title":"", 
+             "legend":[
+                   "种类",
+                   "数量",
+                   "资金（万元）"
+             ],
+             "xAxis":{
+                "xData":['周转','区域分屯','任务专用'],
+             },
+             "yAxis":{
+
+             },
+              "series":{
+                "type":"groupBar",
+              "name":["种类","数量","资金（万元）"],
+              "sData":[
+                ["27","27","27"],
+                ["65","65","65"],
+                ["7","7","7"]
+                ]
+             }
+          },
+
+          //horBar数据格式：
+          'vbar2':{//柱状图数据格式
+              "title":"数量/台套",
+              "xAxis":{
+                "xData":['xx基地','xx基地','xx基地','xx基地','xx基地','xx基地','xx基地','xx基地','xx基地','xx基地','xx基地']
+              },
+              "yAxis":{
+              
+              },
+              "series":{
+                 "type":"horBar",
+                 "sData":["120", "200", "150", "80", "70", "110", "130","152","110","90","75"]
+              }
+          },
+
+          //line数据格式：
+          'line':{//折线图数据格式
+              "title":"台/套",
+              "xAxis":{
+                "xData":['2014','2015','2016','2017','2018']
+              },
+              "yAxis":{
+              
+              },
+              "series":{
+                "type":"line",
+                "sData":['10000','20000', '19000', '22000', '40000']
+              }
+          }
+          }
           
         }
     },
@@ -162,12 +250,18 @@ export default {
             default:'100%'
         },
         data:{
-            type:Object, 
-            required:true
+            type:Object
+        },
+        type:{
+          type:String
         }
     },
     created (){
-        this.option = this.filter(this.data);
+        if(this.type){
+          this.option = this.filter(this.defaultProp[this.type]);
+        }else{
+          this.option = this.filter(this.data);
+        }
     },
     computed:{
     },

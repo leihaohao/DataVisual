@@ -1,10 +1,13 @@
 <style lang="less">
 @import './china-map.less';
+    
 </style>
 
 <template>
-    <div>
-        <div class="charts" id="china-map"></div>
+    <div class="china-map">
+        <Button class="button1" style="color:#fff;" @click.stop.prevent="smallMap()" title="缩小地图" type="ghost" shape="circle" icon="minus-round"></Button>
+        <Button  style="color:#fff;" @click.stop.prevent="largeMap()" title="全屏地图" type="ghost" shape="circle" icon="plus-round"></Button>
+        <div :style="{width:mapWidth+'px',height:mapHeight+'px',marginLeft:marginLeft+'px'}" class="charts" id="china-map"></div>
     </div>
 </template>
 
@@ -20,6 +23,10 @@ export default {
     },
     data(){
         return {
+            mapWidth:1000,
+            mapHeight:800,
+            marginLeft:'-500',
+            chinaMap:'',
             options:{
                 tooltip : {
                     trigger: 'item'
@@ -133,7 +140,7 @@ export default {
                 ],
                 symbolSize:20
             }
-        ]
+            ]
         }
     },
     props: {
@@ -151,11 +158,30 @@ export default {
     computed:{
     },
     mounted(){
-        let chinaMap = this.$echarts.init(document.getElementById('china-map'));
-        chinaMap.setOption(this.options);
-        this.setMapMark(chinaMap,this.mapMarkData,false);
+        this.chinaMap = this.$echarts.init(document.getElementById('china-map'));
+        this.initMap(this.chinaMap);
     },
     methods: {
+        largeMap(){
+            this.mapWidth = 1872;
+            this.mapHeight = 932;
+            this.marginLeft = '-940';
+            this.$nextTick(function(){
+                this.chinaMap.resize();
+            });
+        },
+        smallMap(){
+            this.mapWidth = 1000;
+            this.mapHeight = 800;
+            this.marginLeft = '-500';
+            this.$nextTick(function(){
+                this.chinaMap.resize();
+            });
+        },
+        initMap(chinaMap){
+            chinaMap.setOption(this.options);
+            this.setMapMark(chinaMap,this.mapMarkData,false);
+        },
         buildMapMark(mapMarkData) {
             var result=[];
             for(var j = 0;j<mapMarkData.length;j++ ){

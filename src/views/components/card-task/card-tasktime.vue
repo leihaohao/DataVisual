@@ -1,26 +1,19 @@
 <style lang="less">
-    @import './card-list.less';
+    @import './card-task.less';
 </style>
 
 <template>
-	<div v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
-      <div class="card-section">
-        <b v-if="data.top && data.top.length>0">
-          <span v-for="(item,index) in data.top" :key="`top${index}`">
-            {{item.name}}：<span>{{item.value}}</span>{{item.unit}}</span>
-        </b>
-        <div :class="{'card-row':true,'large':status.big}">
-          <span class="card-td" :style="{display:display,width:display=='block'?'100%':'200px'}" v-for="(item,index) in data.bottom" :key="`item${index}`">{{item.name}}：<span>{{item.value}}</span>{{item.unit}}</span>
-        </div>
-        <card-edit v-if="!status.slot" @show="show" @hide="hide" @del="del"></card-edit>
-      </div>
-  </div>
+    <div class="f-cb card-tasktime" v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
+      <b>任务总时长：<span>{{data.times}}</span>天</b>
+      <span class="f-fr subtitle">（值班任务没有总时长）</span>
+      <card-edit v-if="!status.slot" @show="show" @hide="hide" @del="del"></card-edit>
+    </div>
 </template>
 
 <script>
 import cardEdit from '@/views/components/card-edit/card-edit.vue';
 export default {
-    name: 'cardList',
+    name: 'cardTasktime',
     components: {
       cardEdit
     },

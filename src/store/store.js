@@ -72,6 +72,10 @@ const store = new Vuex.Store({
 			data:'',
 			chartMain:''
 		}
+		,RlzyBz:{
+			data:'',
+			chartMain:''
+		}
 		,SbzySbs:{
 			data:'',
 			chartMain:''
@@ -84,7 +88,11 @@ const store = new Vuex.Store({
 			data:'',
 			chartMain:''
 		}
-		,Xmqk:{
+		,XmqkZs:{
+			data:'',
+			chartMain:''
+		}
+		,XmqkFb:{
 			data:'',
 			chartMain:''
 		}
@@ -108,7 +116,15 @@ const store = new Vuex.Store({
 			data:'',
 			chartMain:''
 		}
-		,RwQk:{
+		,RwSc:{
+			data:'',
+			chartMain:''
+		}
+		,RwJd:{
+			data:'',
+			chartMain:''
+		}
+		,RwDw:{
 			data:'',
 			chartMain:''
 		}
@@ -261,6 +277,11 @@ const store = new Vuex.Store({
 		  const { data } = await api.getRlzyRy(payload);
 		  state.RlzyRy = dataFilter.filterRlzyRy(data);
 		},
+		//人力资源-保障人群（人员）
+		async getRlzyBz ({ commit, state }, payload) {
+		  const { data } = await api.getRlzyBz(payload);
+		  state.RlzyBz = dataFilter.filterRlzyBz(data);
+		},
 		//设备资源-设备数
 		async getSbzySbs ({ commit, state }, payload) {
 		  const { data } = await api.getSbzySbs(payload);
@@ -276,10 +297,15 @@ const store = new Vuex.Store({
 		  const { data } = await api.getZbdt(payload);
 		  state.Zbdt = dataFilter.filterZbdt(data);
 		},
-		//项目情况
-		async getXmqk ({ commit, state }, payload) {
-		  const { data } = await api.getXmqk(payload);
-		  state.Xmqk = dataFilter.filterXmqk(data);
+		//项目情况-总数
+		async getXmqkZs ({ commit, state }, payload) {
+		  const { data } = await api.getXmqkZs(payload);
+		  state.XmqkZs = dataFilter.filterXmqkZs(data);
+		},
+		//项目情况-类型分布
+		async getXmqkFb ({ commit, state }, payload) {
+		  const { data } = await api.getXmqkFb(payload);
+		  state.XmqkFb = dataFilter.filterXmqkFb(data);
 		},
 		//合同情况
 		async getHtqk ({ commit, state }, payload) {
@@ -306,10 +332,20 @@ const store = new Vuex.Store({
 		  const { data } = await api.getZcbh(payload);
 		  state.Zcbh = dataFilter.filterZcbh(data);
 		},
-		//任务情况-概述
-		async getRwQk ({ commit, state }, payload) {
-		  const { data } = await api.getRwQk(payload);
-		  state.RwQk = dataFilter.filterRwQk(data);
+		//任务情况-时长
+		async getRwSc ({ commit, state }, payload) {
+		  const { data } = await api.getRwSc(payload);
+		  state.RwSc = dataFilter.filterRwSc(data);
+		},
+		//任务情况进度
+		async getRwJd ({ commit, state }, payload) {
+		  const { data } = await api.getRwJd(payload);
+		  state.RwJd = dataFilter.filterRwJd(data);
+		},
+		//任务情况-参与单位
+		async getRwDw ({ commit, state }, payload) {
+		  const { data } = await api.getRwDw(payload);
+		  state.RwDw = dataFilter.filterRwDw(data);
 		},
 		//任务情况-参与人员
 		async getRwRy ({ commit, state }, payload) {

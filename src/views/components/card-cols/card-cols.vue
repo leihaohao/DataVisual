@@ -3,8 +3,9 @@
 </style>
 
 <template>
-  <div class="card-section" v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
-    <b>
+  
+  <div class="card-section" v-show="status.isShow !== 0 || config " @click.stop.prevent="anchor" :style="{opacity:status.isShow === 0?'0.4':'1'}">
+    <b v-if="data.top && data.top.length>0">
       <span v-for="(item,index) in data.top" :key="`top${index}`">{{item.name}}：<span>{{item.value}}</span>{{item.unit}}</span>
     </b>
   	<Row v-if="cols === '2'">
@@ -68,6 +69,10 @@ export default {
       del(){
         this.parents.splice(this.index,1);
       },
+      anchor(){
+        if(this.status.path)
+          this.$router.push({path: this.status.path});
+      }
     },
     updated(){
       
