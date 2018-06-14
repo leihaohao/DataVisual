@@ -5,7 +5,7 @@
 	<div>
 
 		<main-nav></main-nav>
-	    <section @dragover.prevent="dragovers($event)" @drop.prevent="drops($event)" class="hjj-content f-cb" :style="{height:config?'932px':'auto',border:config?'2px dashed #fff':'auto',marginBottom:'20px'}">
+	    <section @dragover.prevent="dragovers($event)" @drop.prevent="drops($event)" class="hjj-content f-cb" :style="{height:config?'932px':'auto',border:config?'2px dashed #fff':'auto'}">
 			<china-map></china-map>
 			<component :data="item.data" :is="item.type" :status="item" :index="key" :parents="currentPageComponent" :components="item.components" v-for="(item,key) in currentPageComponent" :key="`${item.type+item.id+key}`">
 				<component :display="item2.display" :is="item2.type" :status="item2" :index="key2" :parents="item.components" :cols="''+item2.cols" :data="item2.data" v-for="(item2,key2) in item.components" :key="`${item.type+item.id+key}`">

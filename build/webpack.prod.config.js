@@ -28,10 +28,10 @@ module.exports = merge(webpackBaseConfig, {
             filename: '[name].[hash].css',
             allChunks: true
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['vender-exten', 'vender-base'],
-            minChunks: Infinity
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ['vender-exten', 'vender-base'],
+        //     minChunks: Infinity
+        // }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
@@ -43,8 +43,8 @@ module.exports = merge(webpackBaseConfig, {
             }
         }),
         new HtmlWebpackPlugin({
-            title: 'iView admin v' + package.version,
-            favicon: './td_icon.ico',
+            title: '火箭军信息通信装备',
+            favicon: 'hjj_icon.ico',
             filename: '../index.html',
             template: './src/template/index.ejs',
             inject: false

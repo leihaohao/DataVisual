@@ -27,14 +27,11 @@
 </template>
 
 <script>
-import cardCharts from '@/views/components/card-charts/card-charts.vue';
-import cardList from '@/views/components/card-list/card-list.vue';
-import cardCols2 from '@/views/components/card-cols2/card-cols2.vue';
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
     name: 'card',
     components: {
-      cardCharts,cardList,cardCols2
+      
     },
     data(){
         return {

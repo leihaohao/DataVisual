@@ -9,7 +9,7 @@
         		<router-link :to="{path:'/custom/'+pageCache[0].path}" >返回地图</router-link>
     		</div>
 		</h3>
-		<div class="hjj-card card-content hjj-pageset">
+		<div class="card-content hjj-pageset">
 			<ul class="f-cb module-page">
 				<li class="f-fl area-shadow" v-for="(item,key) in pageCache">
 					<h5><input type="text" v-model="item.name" @focus.stop="setFocus($event)" @blur.stop="setName(item.name,key,$event)"><Button v-if="pageCache.length!==1" @click.stop.prevent="del(key)" title="删除" type="ghost" shape="circle" icon="close"></Button></h5>

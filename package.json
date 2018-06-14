@@ -1,7 +1,7 @@
 {
-  "name": "iview-admin-template",
+  "name": "datavisual",
   "version": "1.0.0",
-  "description": "a management template bases on iview",
+  "description": "datavisual",
   "main": "index.js",
   "scripts": {
     "init": "webpack --progress --config build/webpack.dev.config.js",

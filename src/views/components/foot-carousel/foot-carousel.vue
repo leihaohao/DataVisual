@@ -10,7 +10,7 @@
         <h3 :class="{'f-dn':!data.top}"><span v-text="data.top"></span></h3>
         <div class="f-pr carousel-warp">
             <div class="pre"><a @click.stop.prevent="pre"></a></div>
-                <div class="carousel-list-wrap">
+                <div ref="carouselWrap" class="carousel-list-wrap">
                     <ul class="f-cb" :style="{ width: ulWidth + 'px' }">
                         <li :style="{ left: liOffset + 'px'}" class="btn f-pr" v-for="item in data.bottom">
                             <router-link :to="'/task'">{{item.name}}</router-link>
@@ -57,14 +57,16 @@ export default {
         }
     },
     mounted(){
-       this.liDom = document.querySelector('.btn');
+        this.$nextTick(()=>{
+            this.liDom = document.querySelector('.btn');
+        })
     },
     updated(){
 
     },
     computed:{
         ulWidth(){
-            return Number(147* this.data.bottom.length);
+            return Number(this.liDom.offsetWidth* this.data.bottom.length);
         }
     },
     methods: {
@@ -73,18 +75,24 @@ export default {
             this.status.y = y;
         },
         pre(){
-            if(Math.abs(this.liOffset)>=this.liDom.clientWidth){
-                this.liOffset = this.liOffset + this.liDom.clientWidth;
-            }else if(this.liOffset<0){
-                this.liOffset = 0;
+            if( this.liOffset < 0){
+                this.liOffset += this.liDom.offsetWidth;
             }
+            // if(Math.abs(this.liOffset)>=this.liDom.clientWidth){
+            //     this.liOffset = this.liOffset + this.liDom.clientWidth;
+            // }else if(this.liOffset<0){
+            //     this.liOffset = 0;
+            // }
         },
         last(){
-            if(Math.abs(this.liOffset)< (this.ulWidth-this.liDom.clientWidth)){
-                this.liOffset = this.liOffset - this.liDom.clientWidth;
-            }else if(Math.abs(this.liOffset)>this.ulWidth){
-                this.liOffset = -this.ulWidth;
+            if( this.ulWidth+this.liOffset >this.$refs.carouselWrap.clientWidth){
+                this.liOffset -= this.liDom.offsetWidth;
             }
+            // if(Math.abs(this.liOffset)< (this.ulWidth-this.liDom.clientWidth)){
+            //     this.liOffset = this.liOffset - this.liDom.clientWidth;
+            // }else if(Math.abs(this.liOffset)>this.ulWidth){
+            //     this.liOffset = -this.ulWidth;
+            // }
         },
         show(){
             this.status.isShow = 1;

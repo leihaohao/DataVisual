@@ -24,12 +24,13 @@ module.exports = merge(webpackBaseConfig, {
             filename: '[name].css',
             allChunks: true
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['vender-exten', 'vender-base'],
-            minChunks: Infinity
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ['vender-exten', 'vender-base'],
+        //     minChunks: Infinity
+        // }),
         new HtmlWebpackPlugin({
-            title: 'iView admin v' + package.version,
+            title: '火箭军信息通信装备' + package.version,
+            favicon: 'hjj_icon.ico',
             filename: '../index.html',
             template: './src/template/index.ejs',
             inject: false

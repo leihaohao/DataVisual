@@ -11,34 +11,22 @@
         <Tabs :class="{'layoutTabs':true,'hide':asideHide}">
             <TabPane label="业务组件">
                 <Collapse :style="{height:layoutboxHeight+'px'}">
-                    <Panel :name="key+1 +''"  v-for="(item,key) in menuComponents">
+                    <Panel :name="key+1 +''"  v-for="(item,key) in menuComponents" :key="`panel${key}`">
                         {{item.name}}
-                        <p  v-for="item2 in item.components" class="area-shadow" slot="content" draggable="true" @dragstart="dragstartEvent($event,item2.type)">{{item2.name}}</p>
+                        <p  v-for="(item2,key) in item.components" class="area-shadow" slot="content" draggable="true" @dragstart="dragstartEvent($event,item2.type)" :key="`p${key}`">{{item2.name}}</p>
                     </Panel>
                 </Collapse>
-                <!-- <ul :class="{'layoutbox-menu':true}">
-                    <li draggable="true" @dragstart="dragstartEvent($event,item.type)" class="area-shadow" v-for="item in menuComponents" >
-                        {{item.name}}
-                    </li>
-                </ul> -->
             </TabPane>
         </Tabs>
     </div>
 </template>
 
 <script>
-import card from '@/views/components/card/card.vue';
-import cardList from '@/views/components/card-list/card-list.vue';
-import cardCharts from '@/views/components/card-charts/card-charts.vue';
-import cardCols from '@/views/components/card-cols/card-cols.vue';
-import cardZbsl from '@/views/components/business-card-ele/card-zbsl/card-zbsl.vue';
-import cardZcsl from '@/views/components/business-card-ele/card-zcsl/card-zcsl.vue';
-import cardBznl from '@/views/components/business-card-ele/card-bznl/card-bznl.vue';
-import cardJhzx from '@/views/components/business-card-ele/card-jhzx/card-jhzx.vue';
+
 export default {
     name: 'layoutbox',
     components: {
-        card,cardList,cardCharts,cardCols,cardZbsl,cardZcsl,cardBznl,cardJhzx
+        
     },
     data(){
         return {

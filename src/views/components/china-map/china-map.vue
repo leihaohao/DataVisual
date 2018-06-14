@@ -159,7 +159,9 @@ export default {
     },
     mounted(){
         this.chinaMap = this.$echarts.init(document.getElementById('china-map'));
-        this.initMap(this.chinaMap);
+        setTimeout(()=>{
+            this.initMap(this.chinaMap);
+        })
     },
     methods: {
         largeMap(){
