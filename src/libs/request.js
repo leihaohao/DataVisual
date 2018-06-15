@@ -19,7 +19,7 @@ const warn = (message) => {
 }
 
 // export const baseURL = process.env.VUE_APP_BACKEND_SERVER
-export const baseURL = 'http://47.97.37.145:9899'
+export const baseURL = 'http://192.168.1.249:8081'
 export const CancelToken = axios.CancelToken // 取消请求
 
 const res = axios.create({

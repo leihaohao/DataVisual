@@ -16,7 +16,6 @@
 					<router-link :to="{path:'/custom/'+item.path,query:{name: 'config'}}"><img :src="imgsrc" alt=""></router-link>
 				</li>
 			</ul>
-
 		</div>
 	</div>
 </template>

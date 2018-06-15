@@ -1,9 +1,9 @@
-import api from '@/libs/request'
-
+import res from '@/libs/request'
+import cache from '@/libs/cache'
 export default {
   // 获取缓存数据
   getPageCache(payload){
-    //return res.get('/guidance/options')
+    //return res.get('/equipstatus/zbsl_allData')
     
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -49,27 +49,38 @@ export default {
 
   //装备实力-编制数量
   getZbslBzs(payload){
-    //return res.get('/guidance/options')
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          data:{"data":
-          [{"name":"战备数量","value":"0"},{"name":"缺编数量","value":"180"},{"name":"可用数量","value":"8"},{"name":"现有数量","value":"2"}],"zbl":"0","zbje":"7.3","bzsl":"180","bpl":"0","kyl":"400"}
+    return res.get('/equipstatus/zbsl_allData',
+      {
+        params:payload,
+        adapter:cache({
+          local:false
         })
+      }
+    );
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       data:{"data":
+    //       [{"name":"战备数量","value":"0"},{"name":"缺编数量","value":"180"},{"name":"可用数量","value":"8"},{"name":"现有数量","value":"2"}],"zbl":"0","zbje":"7.3","bzsl":"180","bpl":"0","kyl":"400"}
+    //     })
 
-      })
-    })
+    //   })
+    // })
   },
   //战储实力-战储装备数
   getZcslZbs(payload){
-    //return res.get('/guidance/options')
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          data:{}
+    return res.get('/hjjSynthesize/zcsl_zcbz',{
+        adapter:cache({
+          local:false
         })
       })
-    })
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       data:{}
+    //     })
+    //   })
+    // })
   },
   //战储实力-战储器材数
   getZcslQcs(payload){
@@ -113,124 +124,173 @@ export default {
       })
   },
   getJhzxDg(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
+    return res.get('/hjjSynthesize/jhzx_dgjhzx',{
+        adapter:cache({
+          local:false
         })
       })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getJhzxWx(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
+    return res.get('/hjjSynthesize/jhzx_wxjhzx',{
+        adapter:cache({
+          local:false
         })
       })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getJhzxZc(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
+    return res.get('/hjjSynthesize/jhzx_zcjhzx',{
+        adapter:cache({
+          local:false
         })
       })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZbzlZt(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/equipstatus/zbzlzt',{
+          adapter:cache({
+            local:false
           })
-        })
-      })
+        }
+      )
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZbbh(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+   return res.get('/equipstatus/equipChange',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZbdy(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/equipstatus/findDyzbDataDiv',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRlzyRy(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/baoz/rlzy',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRlzyBz(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/baoz/rlzy',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getSbzySbs(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/baoz/sbzy',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getQcslQcs(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/hjjSynthesize/bznl_qcsl',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZbdt(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/busController/equipStatus',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getXmqkZs(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/busController/ywts_xmqk',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getXmqkFb(payload){
     //return res.get('/guidance/options')
@@ -243,14 +303,18 @@ export default {
       })
   },
   getHtqk(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/busController/ywdt_htqk',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getJfqk(payload){
     //return res.get('/guidance/options')
@@ -263,34 +327,40 @@ export default {
       })
   },
   getCkqk(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
-        })
-      })
+    return res.get('/storeController/zc_storehouse',{
+      adapter:cache({local:false})
+    })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZczl(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
-        })
-      })
+    return res.get('/storeController/zcZlZt',{
+      adapter:cache({local:false})
+    })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getZcbh(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
-          })
-        })
-      })
+    return res.get('/storeController/loadZc_change',{
+      adapter:cache({local:false})
+    })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRwSc(payload){
     //return res.get('/guidance/options')

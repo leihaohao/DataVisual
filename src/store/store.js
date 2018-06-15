@@ -161,9 +161,9 @@ const store = new Vuex.Store({
 	actions: {
 		//请求全部主页面数据
 		async getAllRequest ({dispatch, commit, state }, payload) {
-		  dispatch('getZbslBzs');
-		  dispatch('getZcslZbs');
-		  dispatch('getZcslQcs');
+		  // dispatch('getZbslBzs');
+		  // dispatch('getZcslZbs');
+		  // dispatch('getZcslQcs');
 		  // dispatch('getZbslBzs');
 		  // dispatch('getZbslBzs');
 		  // dispatch('getZbslBzs');
@@ -214,7 +214,7 @@ const store = new Vuex.Store({
 
 		//装备实力-编制数量
 		async getZbslBzs ({ commit, state }, payload) {
-		  const { data } = await api.getZbslBzs(payload);
+		  const  {data} = await api.getZbslBzs(payload);
 		  state.ZbslBzs = dataFilter.filterZbslBzs(data);
 		},
 		//战储实力-战储装备数

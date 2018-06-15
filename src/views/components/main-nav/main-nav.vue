@@ -6,7 +6,7 @@
         
         <div class="pre" v-show="isShowMore"><a @click.stop.prevent="pre"><Icon type="chevron-left"></Icon></a></div>
         <div ref="menuNavWrap" class="hjj-menu-nav-wrap">
-            <ul class="f-cb hjj-menu-nav" :style="{width:`${ulWidth}px`}">
+            <ul class="f-cb hjj-menu-nav" :style="{width:ulWidth+'px'}">
                 <li v-for="(item,key) in pageComponents" class="navs" :style="{ left: liOffset + 'px'}" :class="{active:item.path === $route.params.id}">
                     <router-link :to="'/custom/'+item.path" >
                         {{item.name}}
@@ -52,6 +52,7 @@ export default {
             liDom:'',
             isShowMore:false,
             liOffset:0,
+            ulWidth:0,
             config:(this.$route.query.name === 'config')
         }
     },
@@ -62,9 +63,6 @@ export default {
         
     },
     computed: {
-        ulWidth(){
-            return this.liDom?Number(this.liDom.offsetWidth* this.pageComponents.length):0;
-        },
         ...mapState({
           pageComponents: state => {
                 return state.pageComponents
@@ -73,13 +71,15 @@ export default {
     },
     watch: {
         pageComponents() {
-            this.liDom = document.querySelector('.navs');
-        },
-        ulWidth(){
-            this.isShowMore = (this.$refs.menuNavWrap && this.ulWidth>this.$refs.menuNavWrap.clientWidth);
+            this.$nextTick(()=>{
+                this.liDom = document.querySelector('.navs');
+                this.ulWidth = this.liDom?Number(this.liDom.offsetWidth* this.pageComponents.length):0;
+                this.isShowMore = (this.$refs.menuNavWrap && this.ulWidth>this.$refs.menuNavWrap.clientWidth);
+            })
         }
     },
     mounted(){
+        
     },
     methods: {
         savePageSet(){
@@ -95,11 +95,6 @@ export default {
             if( this.liOffset < 0){
                 this.liOffset += this.liDom.offsetWidth;
             }
-            // if(Math.abs(this.liOffset)>=this.liDom.offsetWidth){
-            //     this.liOffset = this.liOffset + this.liDom.offsetWidth;
-            // }else if(this.liOffset<0){
-            //     this.liOffset = 0;
-            // }
         },
         last(){
             if( this.ulWidth+this.liOffset >this.$refs.menuNavWrap.clientWidth){

@@ -306,7 +306,7 @@ export default {
                     },
                   series: [
                       {
-                          name: '访问来源',
+                          //name: '访问来源',
                           type: '',
                           radius: '50%',
                           center: ['50%', '30%'],
@@ -356,11 +356,11 @@ export default {
                      color:['#df9630','#009aff'],
                      tooltip: {
                          trigger: 'item',
-                         formatter: "{a} <br/>{b}: {c} ({d}%)"
+                         formatter: "{b}: {c} ({d}%)"
                      },
                      series: [
                          {
-                             name:'访问来源',
+                             //name:'访问来源',
                              type:'pie',
                              center:['50%','50%'],
                              radius: ['65%', '90%'],
