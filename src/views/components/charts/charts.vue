@@ -291,7 +291,7 @@ export default {
                 },
                 tooltip: {//提示框组件配置
                       trigger: 'item',//触发类型 item：数据项图形触发   axis：坐标轴触发 
-                      formatter: "{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器，支持字符串模板和回调函数两种形式。
+                      formatter: "{b} : {c} ({d}%)" //提示框浮层内容格式器，支持字符串模板和回调函数两种形式。
                   },
                   color: ['#1e9ef5','#bf4947','#df9630','#4fcdf6','#80b658'],//对应的数据在图中的颜色
                   legend: {//图例的配置
@@ -614,7 +614,7 @@ export default {
                         // right: '4%',
                         // bottom: '3%',
                         // containLabel: true
-                        x:80,
+                        x:100,
                         y:10,
                         x2:0,
                         y2:10

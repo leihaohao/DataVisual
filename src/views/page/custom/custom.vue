@@ -58,9 +58,11 @@ export default {
 		},
 		...mapState({
 	      pageComponents: state => state.pageComponents,
-	    })
+	    }),
+
 	},
     methods: {
+    	...mapActions(['SearchZbts','SearchZcts','SearchBzts','SearchYwts','SearchZbts']),
 		dragovers(ev){
 		},
 		drops(ev){
@@ -87,24 +89,28 @@ export default {
 					origin:'Foot',
 					ex:'data'
 				})
-			}else if(type === 'search-checkbox'){
-				this.currentPageComponent.push({
+			}else if(type === 'SearchZbts' || type === 'SearchZcts' || type === 'SearchBzts' || type === 'SearchYwts'){
+				let obj = {
 					type: 'search-checkbox',
 					data:{},
 					isShow:1,
 					x:0,
 					y:0,
-					id:(Math.random()*2e+2).toFixed()
-				})
-			}else if(type === 'search-list'){
-				this.currentPageComponent.push({
+					id:(Math.random()*2e+2).toFixed(),
+					origin:type
+				};
+				this.currentPageComponent.push(obj)
+			}else if(type === 'SearchRwts'){
+				let obj = {
 					type: 'search-list',
 					data:{},
 					isShow:1,
 					x:0,
 					y:0,
-					id:(Math.random()*2e+2).toFixed()
-				})
+					id:(Math.random()*2e+2).toFixed(),
+					origin:type
+				};
+				this.currentPageComponent.push(obj)
 			}else if(type === ''){
 
 			}else{

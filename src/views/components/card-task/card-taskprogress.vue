@@ -6,7 +6,7 @@
     <div class="f-cb card-taskprogress" v-show="status.isShow !== 0 || config " :style="{opacity:status.isShow === 0?'0.4':'1'}">
       <div>任务总进度： 
         <span class="hjj-progress">
-          <span class="progress-rate" style="width:85%;"><span class="progress-text">{{data.progress}}</span></span>
+          <span class="progress-rate" :style="{width:data.progress}"><span class="progress-text">{{data.progress}}</span></span>
         </span>
       </div>
       <card-edit v-if="!status.slot" @show="show" @hide="hide" @del="del"></card-edit>

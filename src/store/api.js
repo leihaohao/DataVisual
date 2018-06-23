@@ -363,54 +363,133 @@ export default {
       // })
   },
   getRwSc(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRwJd(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRwDw(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRwRy(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
   },
   getRwZb(payload){
-    //return res.get('/guidance/options')
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            data:{}
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
           })
         })
-      })
+      // return new Promise((resolve) => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       data:{}
+      //     })
+      //   })
+      // })
+  },
+  //搜索-装备态势
+  //一级
+  getSearchZbts (payload) {
+    return res.get('/equipstatus/queryZblx.do',{
+          adapter:cache({
+            local:false
+          })
+        })
+  },
+  //搜索-装备态势
+  //二级级
+  getSearchZbtsTwo (payload) {
+    return res.post('/equipstatus/queryZblxTwo.do',payload);
+  },
+  //搜索-战储态势
+  getSearchZcts (payload) {
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
+          })
+        })
+  },
+  //搜索-战储态势二级
+  getSearchZctsTwo (payload) {
+    return res.post('/equipstatus/queryZblxTwo.do',payload);
+  },
+  //搜索-保障态势
+  getSearchBzts (payload) {
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
+          })
+        })
+  },
+  //搜索-保障态势二级
+  getSearchBztsTwo (payload) {
+    return res.post('/equipstatus/queryZblxTwo.do',payload);
+  },
+  //搜索-业务态势
+  getSearchYwts (payload) {
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
+          })
+        })
+  },
+  //搜索-业务态势二级
+  getSearchYwtsTwo (payload) {
+    return res.post('/equipstatus/queryZblxTwo.do',payload);
+  },
+  //搜索-任务态势
+  getSearchRwts (payload) {
+    return res.get('/taskController/task_right',{
+          adapter:cache({
+            local:false
+          })
+        })
   }
+
  
 }

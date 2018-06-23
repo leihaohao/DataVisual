@@ -948,11 +948,11 @@ body{ background: url("../images/main_bg.png") no-repeat top center #0b1236 !imp
   background-color: rgba(32, 54, 178, 0.15);
 }
 .search-category{width:430px;}
-.left-list li{width:145px;height:60px;line-height:60px;text-align:center;font-size:20px;margin-bottom: 15px;background:url(../images/select-list-bg.png) no-repeat 0 -75px;}
+.left-list li{width:145px;height:60px;line-height:60px;text-align:center;font-size:20px;margin-bottom: 15px;background:url(../images/search-box-bg.png) no-repeat 0 -76px;}
 .left-list li:last-child{margin:0;}
-.left-list li:hover{background:url(../images/select-list-bg.png) no-repeat 0 0;}
+.left-list li:hover{background:url(../images/search-box-bg.png) no-repeat 0 0;}
 .left-list li:hover a{color:#fff;}
-.left-list li a{color:#01f5fd;font-size: 20px;width:100%;display:inline-block;}
+.left-list li a{color:#01f5fd;font-size: 20px;display:inline-block;width: 4em; white-space: nowrap; overflow: hidden;}
 .right-checkboxs{
     margin-left:10px;
     width: 245px;

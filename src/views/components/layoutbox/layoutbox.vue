@@ -37,9 +37,14 @@ export default {
                 {name:'任务菜单',components:[
                     {name:'任务栏',type:'foot'}
                 ]},
-                {name:'搜索',components:[
-                    {name:'搜索复选框',type:'search-checkbox'},
-                    {name:'搜索列表',type:'search-list'}
+                {name:'搜索复选框',components:[
+                    {name:'装备态势',type:'SearchZbts'},
+                    {name:'战储态势',type:'SearchZcts'},
+                    {name:'保障态势',type:'SearchBzts'},
+                    {name:'业务动态',type:'SearchYwdt'},
+                ]},
+                {name:'搜索列表',components:[
+                    {name:'任务列表',type:'SearchRwlb'},
                 ]},
                 {name:'装备实力',components:[
                     {name:'编制数量',type:'ZbslBzs'}

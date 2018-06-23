@@ -474,64 +474,94 @@ export default {
   },
   filterRwSc(data){
     return {
-      data:{times:'23'}
+      data:{times:data.data.TOTALHOUR}
     }
   },
   filterRwJd(data){
     return {
-      data:{progress:'85%'}
+      data:{progress:`${data.data.TOTALPROGRESS}%`}
     }
   },
   filterRwDw(data){
     return {
       data:{top:[{name:'参与单位',value:4}]},
-      list:{title:['单位名称','任务时长','任务进度'],content:[['单位a','2天','50%'],['单位a','2天','50%'],['单位a','2天','50%']]}
+      list:{title:['单位名称','任务时长','任务进度'],content:data.cyDwItems.map((item)=>{
+        return [item.DWMC,item.RWSC,item.RWJD]
+      })}
     }
   },
   filterRwRy(data){
     return {
-      data:{top:[{name:'参与人员总数',value:2000,unit:'人'}]},
+      data:{top:[{name:'参与人员总数',value:data.data.TOTALJOINPERSON,unit:'人'}]},
       chartMain:{//水平柱状图数据格式
              "title":"",
                "xAxis":{
                   
                },
                "yAxis":{
-                  "yData":['单位名称','单位名称','单位名称','单位名称']
+                  "yData":data.bardata.map((item)=>{
+                  return item.name
+                })
                },
                "series":{
                 "type":"verBar",
-                "sData":["1800","600","900","800"]
+                "sData":data.bardata.map((item)=>{
+                  return item.value
+                })
                }
             }
     }
   },
   filterRwZb(data){
     return {
-      data:{top:[{name:'参与装备总数',value:2000}]},
+      data:{top:[{name:'参与装备总数',value:data.data.TOTALJOINEQUIP}]},
       chartMain:{//饼状图数据格式
         "title":"装备类型占比",
-        "legend":[
-                 "机动指挥系统",
-                 "固定指挥所",
-                 "固定通讯台站",
-                 "网络节点",
-                 "机动通信装备"
-        ],
+        "legend":data.equipdata.map((item)=>{
+          return item.name
+        }),
         "series":{
           "type":"pie",
-          "sData":[
-                 {"value":"580","name":"机动指挥系统"},
-                 {"value":"700","name":"固定指挥所"},
-                 {"value":"800","name":"固定通讯台站"},
-                 {"value":"500","name":"网络节点"},
-                 {"value":"290","name":"机动通信装备"},
-          ]
+          "sData":data.equipdata
         }    
        }
     }
   },
 
+  filterSearchZbts (data) {
+    console.log(data);
+  },
+  //搜索-战储态势
+  filterSearchZcts (data) {
+    console.log(data);
+  },
+  //搜索-保障态势
+  filterSearchBzts (data) {
+    console.log(data);
+  },
+  //搜索-业务态势
+  filterSearchYwts (data) {
+    console.log(data);
+  },
+  filterSearchZbtsTwo (data) {
+    console.log(data);
+  },
+  //搜索-战储态势
+  filterSearchZctsTwo (data) {
+    console.log(data);
+  },
+  //搜索-保障态势
+  filterSearchBztsTwo (data) {
+    console.log(data);
+  },
+  //搜索-业务态势
+  filterSearchYwtsTwo (data) {
+    console.log(data);
+  },
+  //搜索-任务态势
+  filterSearchRwts (data) {
+    console.log(data);
+  },
 
   deletePageCacheDataProperty(datas){
     const _self = this;

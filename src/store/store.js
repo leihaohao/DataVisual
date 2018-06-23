@@ -135,6 +135,25 @@ const store = new Vuex.Store({
 		,RwZb:{
 			data:'',
 			chartMain:''
+		},
+		SearchZbts:{
+			one:'',
+			two:''
+		},
+		SearchZcts:{
+			one:'',
+			two:''
+		},
+		SearchBzts:{
+			one:'',
+			two:''
+		},
+		SearchYwts:{
+			one:'',
+			two:''
+		},
+		SearchRwts:{
+			data:''
 		}
 	},
 	mutations: {
@@ -147,7 +166,9 @@ const store = new Vuex.Store({
 		  const setComponents =  (data)=>{
 		    for(let i=0;i<data.length;i++){
 		      if(data[i]['origin']){
-		       data[i]['data'] = state[data[i]['origin']][data[i]['ex']];
+		      	if(data[i]['ex']){
+		       		data[i]['data'] = JSON.parse(JSON.stringify(state[data[i]['origin']][data[i]['ex']]));
+		      	}
 		      }
 		      if(data[i]['components']){
 		         setComponents(data[i]['components']);
@@ -156,6 +177,9 @@ const store = new Vuex.Store({
 		  }
 		  setComponents(cloneData);
 		  state.pageComponents = cloneData;
+		  setTimeout(function(){
+		  	console.log(state.pageComponents[0]['components'][0]['components'][0]['data']['top'][0]['name'] ='你好');
+		  },10000);
 		},
 	},
 	actions: {
@@ -214,7 +238,7 @@ const store = new Vuex.Store({
 
 		//装备实力-编制数量
 		async getZbslBzs ({ commit, state }, payload) {
-		  const  {data} = await api.getZbslBzs(payload);
+		  const {data} = await api.getZbslBzs(payload);
 		  state.ZbslBzs = dataFilter.filterZbslBzs(data);
 		},
 		//战储实力-战储装备数
@@ -356,6 +380,53 @@ const store = new Vuex.Store({
 		async getRwZb ({ commit, state }, payload) {
 		  const { data } = await api.getRwZb(payload);
 		  state.RwZb = dataFilter.filterRwZb(data);
+		},
+		//搜索-装备态势
+		async getSearchZbts ({ commit, state }, payload) {
+		  const { data } = await api.getSearchZbts(payload);
+		  state.SearchZbts.one = dataFilter.filterSearchZbts(data) ;
+		  state.SearchZbts.two = await api.getSearchZbtsTwo({pmnm:data[0]['pmnm']});
+		},
+		//搜索-装备态势二级
+		async getSearchZbtsTwo ({ commit, state }, payload) {
+		  const { data } = await api.getSearchZbtsTwo(payload);
+		  state.SearchZbts.two = dataFilter.filterSearchZbtsTwo(data);
+		},
+		//搜索-战储态势
+		async getSearchZcts ({ commit, state }, payload) {
+		  const { data } = await api.getSearchZcts(payload);
+		  state.SearchZcts = dataFilter.filterSearchZcts(data);
+		  state.SearchZcts.two = await api.getSearchZctsTwo({pmnm:data[0]['pmnm']});
+		},
+		//搜索-战储态势二级
+		async getSearchZctsTwo ({ commit, state }, payload) {
+		  const { data } = await api.getSearchZctsTwo(payload);
+		  state.SearchZcts.two = dataFilter.filterSearchZctsTwo(data);
+		},
+		//搜索-保障态势
+		async getSearchBzts ({ commit, state }, payload) {
+		  const { data } = await api.getSearchBzts(payload);
+		  state.SearchBzts = dataFilter.filterSearchBzts(data);
+		},
+		//搜索-保障态势二级
+		async getSearchBztsTwo ({ commit, state }, payload) {
+		  const { data } = await api.getSearchBztsTwo(payload);
+		  state.SearchBzts.two = dataFilter.filterSearchBztsTwo(data);
+		},
+		//搜索-业务态势
+		async getSearchYwts ({ commit, state }, payload) {
+		  const { data } = await api.getSearchYwts(payload);
+		  state.SearchYwts = dataFilter.filterSearchYwts(data);
+		},
+		//搜索-业务态势二级
+		async getSearchYwtsTwo ({ commit, state }, payload) {
+		  const { data } = await api.getSearchYwtsTwo(payload);
+		  state.SearchYwts.two = dataFilter.filterSearchYwtsTwo(data);
+		},
+		//搜索-任务态势
+		async getSearchRwts ({ commit, state }, payload) {
+		  const { data } = await api.getSearchRwts(payload);
+		  state.SearchRwts = dataFilter.filterSearchRwts(data);
 		}
 	},
     modules: {
